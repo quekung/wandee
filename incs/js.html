@@ -1,0 +1,159 @@
+<script type="text/javascript" src="http://ui.files-media.com/js/jquery.idTabs.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//back to top
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('#back2top').css({bottom:"55px"});
+		} else {
+			$('#back2top').css({bottom:"-100px"});
+		}
+	});
+	$('#back2top').click(function(){
+		$('html, body').animate({scrollTop: '0px'}, 800);
+		return false;
+	});
+	//expand nav
+	$('.btn-nv-m .b-ex').click(function(){
+		$(this).toggleClass('active');
+		$('body').toggleClass('expand');
+	});
+	$('.sw-nav>a.btn').click(function(){
+		$(this).toggleClass('active');
+		$(this).next().slideToggle(300);
+	});
+     /*header*/
+	if($('#header').length > 0) {
+		var top17 = $('#header').offset().top + parseFloat($('#header').innerHeight());
+		$(window).scroll(function (event) {
+			var y17 = $(this).scrollTop();
+			if (y17 >= top17 ) {$('#header').addClass('fixed');} else {$('#header').removeClass('fixed');}
+		});
+	}
+	/* scroll to fix sidebar */	
+	 if($('#sr-box-fix').length > 0) {
+		var top17 = $('#sr-box-fix').offset().top - parseFloat($('#sr-box-fix').css('marginTop').replace(/auto/, 0));
+		var top18 = $('.ct-related').offset().top - parseFloat($('#sr-box-fix').innerHeight());
+		$(window).scroll(function (event) {
+			var y17 = $(this).scrollTop();
+			if (y17 >= top17 && y17 <= top18) {$('#sr-box-fix').addClass('fixed');} else {$('#sr-box-fix').removeClass('fixed');}
+		});
+	}
+	
+});
+</script>
+
+<script type="text/javascript" src="http://ui.files-media.com/js/jquery.bxslider.js"></script>
+<script>
+$(document).ready(function() {
+	$('.display-hl .bxslider').bxSlider({
+	  minSlides: 2,
+	  maxSlides: 3,
+	  slideWidth: 370,
+	  slideMargin: 30,
+	  moveSlides: 1,
+	  speed: 1500,
+	});
+	/*gallery*/
+	$('.display-gal .bxslider').bxSlider({
+	  minSlides: 2,
+	  maxSlides: 4,
+	  slideWidth: 260,
+	  slideMargin: 10,
+	  pager: false
+	});
+});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+<script>
+/*$("#done").on('click', function() {
+
+  $.fancybox.open('<div class="message content"><h2>สำเร็จ!</h2><p>รายการเสร็จสมบูรณ์!</p></div>');
+
+});*/
+
+$(document).ready(function() {
+	$("[data-fancybox='modal']").fancybox({
+		toolbar  : false,
+		margin : [1, 0],
+		infobar : false,
+		protect : false,
+		arrows : false,
+        touch: false,
+	});
+	
+	$("[data-fancybox='iframe']").fancybox({
+		//toolbar  : false,
+		infobar : false,
+		arrows : false,
+		iframe : {
+			preload : true,
+			css : {
+				width : '1170px'
+			}
+		}
+	});
+	$('[data-fancybox="image"]').fancybox({
+    	arrows : false,
+    });
+	
+});
+</script>
+
+<!-- <script>
+/*$(document).ready(function() {
+	$(".various").fancybox({
+		maxWidth	: '100%',
+		maxHeight	: '80%',
+		fitToView	: false,
+		width		: '800',
+		height		: '800',
+		autoSize	: false,
+		title			: false,
+		closeEffect	: 'none'
+	});
+	$(".fancybox").fancybox({
+		maxWidth	: '100%',
+		maxHeight	: '100%',
+		fitToView	: false,
+		width		: '750',
+		height		: '100%',
+		closeEffect	: 'none'
+	});
+});*/
+</script> -->
+
+<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+<script>
+$(window).load(function() {
+  $('.big-slider, .slide-thumb').flexslider({
+    animation: "slide",
+    smoothHeight: true,
+  });
+    
+  $('.thumb-slider').flexslider({
+    animation: "slide",
+    animationLoop: true,
+    itemWidth: 340,
+    itemMargin: 0,
+    minItems: 1,
+    maxItems: 5
+  });
+  
+  $('.slide-news').flexslider({
+    animation: "slide",
+    animationLoop: true,
+    itemWidth: 400,
+    itemMargin: 20,
+    minItems: 1,
+    maxItems: 3
+  });
+});
+</script>
+
+<!-- <script type="text/javascript" src="js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script> -->
